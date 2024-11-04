@@ -2,7 +2,7 @@ import os
 from time import sleep
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
-from selenium.common import NoSuchElementException
+from selenium.common import NoSuchElementException, InvalidSelectorException
 from selenium.webdriver.common.by import By
 from dotenv import load_dotenv
 
@@ -69,13 +69,13 @@ next_buttons = driver.find_elements(By.XPATH, value="//span[@class='x1lliihq x6i
 
 next_buttons[0].click()
 
-sleep(5)
+sleep(7)
 
 driver.switch_to.window(base_window)
 
 # first pop up window
 buttons =driver.find_elements(By.XPATH, value= "//button[@class='c1p6lbu0 W(100%)']")
-
+sleep(4)
 buttons[0].click()
 
 sleep(5)
@@ -88,5 +88,15 @@ buttons_miss_out[1].click()
 
 sleep(2)
 
+down_buttons = driver.find_elements(By.XPATH, value="//button[@class='button Lts($ls-s) Z(0) CenterAlign Mx(a) Cur(p) Tt(u) Bdrs(50%) P(0) Fw($semibold) focus-button-style gamepad-button Bxsh($bxsh-btn) Expand Ov(h) Trstf(e) Trsdu($normal) Wc($transform) Pe(a) Scale(1.1):h Scale(.9):a Bgi($g-ds-background-nope):a']")
 
-
+for i in range(10):
+    # driver.find_element(By.XPATH, value="//div[@class='lxn9zzn'").click()
+    #     not_intersted.click()
+    try:
+        sleep(1)
+        not_intersted = driver.find_element(By.XPATH, value="//div[@class='lxn9zzn']")
+        not_intersted.click()
+    except:
+        down_buttons[0].click()
+        sleep(2)
