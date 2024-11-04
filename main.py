@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 from dotenv import load_dotenv
-from selenium.webdriver.common.action_chains import ActionChains
+
 
 URL = "https://tinder.com/"
 
