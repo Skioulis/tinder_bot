@@ -65,14 +65,28 @@ sleep(8)
 classes_string = "x1lliihq x6ikm8r x10wlt62 x1n2onr6 xlyipyv xuxw1ft".split()
 
 next_buttons = driver.find_elements(By.XPATH, value="//span[@class='x1lliihq x6ikm8r x10wlt62 x1n2onr6 xlyipyv xuxw1ft']")
-print(f"test {len(next_buttons)}")
+
 
 next_buttons[0].click()
 
-
+sleep(5)
 
 driver.switch_to.window(base_window)
 
-buttons =driver.find_elements(By.CSS_SELECTOR, value= "div div button")
+# first pop up window
+buttons =driver.find_elements(By.XPATH, value= "//button[@class='c1p6lbu0 W(100%)']")
 
-print(len(buttons))
+buttons[0].click()
+
+sleep(5)
+
+buttons_miss_out =driver.find_elements(By.XPATH, value= "//div[@class='lxn9zzn']")
+
+buttons_miss_out[1].click()
+
+# we are in
+
+sleep(2)
+
+
+
